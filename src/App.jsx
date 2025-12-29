@@ -5,6 +5,7 @@ import NavbarComp from "./components/NavbarComp";
 import Home from "./page/Home";
 import Properties from "./page/Properties";
 import Contact from "./page/Contact";
+import Propertydetails from "./page/Propertydetails";
 
 function App() {
   return (
@@ -12,9 +13,10 @@ function App() {
       <NavbarComp />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/landproject" element={<Home />} />
         <Route path="/properties" element={<Properties />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/propertydetail/:id" element={<Propertydetails />} />
       </Routes>
     </Router>
   );

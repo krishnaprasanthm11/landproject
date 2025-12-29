@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-
-const propertyData = [
+import { Link } from "react-router-dom";
+export const propertyData = [
   {
     id: 1,
     title: "Modern Villa in Coimbatore",
@@ -66,14 +66,13 @@ const propertyData = [
 
 const Properties = () => {
   return (
-    <Container className="py-5" >
-       
+    <Container className="py-5">
       <h2 className="text-center fw-bold mb-4 text-primary">
         Available Properties
       </h2>
       <Row>
         {propertyData.map((property) => (
-          <Col md={4} className="mb-4 col-12 col-lg-3 col-md-4 col-sm-6 col-xs-12" key={property.id}>
+          <Col md={4} className="mb-4" key={property.id}>
             <Card className="shadow-sm">
               <Card.Img variant="top" src={property.image} height="220px" />
               <Card.Body>
@@ -82,7 +81,16 @@ const Properties = () => {
                   {property.location} <br />
                   <strong>{property.price}</strong>
                 </Card.Text>
-                <Button variant="primary">View Details</Button>
+                <div className="d-flex justify-content-around">
+                  <Link to="/">
+                    <i class="bi bi-whatsapp text-success    fs-3"></i>
+                  </Link>
+                  <i class="bi bi-envelope-arrow-down text-secondary    fs-3"></i>
+
+                  <Link to={`/propertydetail/${property.id}`}>
+                    <Button variant="primary">View Details</Button>
+                  </Link>
+                </div>
               </Card.Body>
             </Card>
           </Col>
